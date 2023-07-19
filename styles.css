@@ -1,0 +1,226 @@
+:root {
+    /* Primary */
+    --Desaturated-Red: hsl(0, 36%, 70%);
+    --Soft-Red: hsl(0, 93%, 68%);
+    /*Neutral*/
+    --Dark-Grayish-Red: hsl(0, 6%, 24%);
+    /*Gradients*/
+    --linear-body: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    --linear-btn: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    line-height: 1;
+    grid-template-rows: auto auto 1fr auto;
+    background: var(--linear-body);
+    background-attachment: fixed;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+header {
+    padding: 2rem;
+}
+
+picture,
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+}
+
+picture img {
+    width: 100%;
+    max-height: 30rem;
+    object-fit: cover;
+}
+
+
+
+/* Main */
+main {
+    display: grid;
+    align-content: start;
+    text-align: center;
+    width: min(84%, 30rem);
+    gap: 18px;
+    margin: 4rem auto 4rem;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    letter-spacing: 0.75rem;
+    color: var(--Dark-Grayish-Red);
+}
+
+h1 span {
+    display: block;
+    color: var(--Desaturated-Red);
+    font-weight: 300;
+}
+
+main p {
+    line-height: 1.5;
+    color: var(--Desaturated-Red);
+}
+
+/* Form */
+form {
+    position: relative;
+    margin-top: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border: 0.1rem solid var(--Desaturated-Red);
+    border-radius: 2rem;
+    opacity: 0.5;
+    font-weight: 600;
+}
+
+form input:focus {
+    outline: 1px solid var(--Desaturated-Red);
+}
+
+::placeholder {
+    color: var(--Desaturated-Red);
+}
+
+form input:focus::placeholder {
+    opacity: 0;
+}
+
+form button {
+    position: absolute;
+    top: 0%;
+    right: -1%;
+    height: 100%;
+    width: 22.5%;
+    display: grid;
+    place-content: center;
+    background-image: var(--linear-btn);
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem -0.5rem var(--Desaturated-Red);
+    cursor: pointer;
+    border: none;
+}
+
+/* Footer */
+.attribution {
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
+
+.attribution a {
+    color: hsl(227, 95%, 74%);
+}
+
+/* Errors */
+.formEmail input.error {
+    border: 2px solid var(--Soft-Red);
+}
+
+.formEmail input.error::placeholder {
+    color: var(--Soft-Red);
+}
+
+.formEmail small {
+    position: absolute;
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: var(--Soft-Red);
+}
+
+.formIcon {
+    position: absolute;
+    top: 27%;
+    right: 25%;
+    display: none;
+}
+
+
+@media only screen and (min-width: 970px) {
+    body {
+        grid-template-columns: 1.36fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            'head hero'
+            'main hero'
+            'foot hero';
+        background-image: url(images/bg-pattern-desktop.svg), var(--linear-body);
+        background-size: 57% 100%;
+        background-position: 8px 0;
+    }
+
+    header {
+        grid-area: head;
+        padding: 4rem 25% 1rem 20%;
+    }
+
+    picture {
+        grid-area: hero;
+    }
+
+    picture img {
+        max-height: none;
+        height: 100%;
+    }
+
+    main {
+        grid-area: main;
+        align-content: center;
+        text-align: left;
+        width: 100%;
+        margin: 0 0 14px 0;
+        padding: 4rem 25% 4rem 20%;
+        gap: 20px;
+    }
+
+    h1 {
+        line-height: 1.11;
+        letter-spacing: 1.05rem;
+        margin-top: 26px;
+    }
+
+    h1 span {
+        line-height: 1;
+    }
+
+    main p {
+        line-height: 1.75;
+        margin-top: 16px;
+    }
+
+    form {
+        margin-top: 24px;
+    }
+
+    form input {
+        padding: 1.2rem 1.85rem;
+    }
+
+    .attribution {
+        font-size: 14px;
+        text-align: center;
+        padding: 20px;
+        grid-area: foot;
+    }
+
+    .attribution a {
+        color: hsl(227, 95%, 74%);
+    }
+}
